@@ -3226,5 +3226,4 @@ export class LeadListPage {
   async scrollCompanyIntoView(): Promise<void> {
     await scrollIntoViewWhenVisible(webLocator(this.page, LeadListPage.L.company));
   }
-
 }

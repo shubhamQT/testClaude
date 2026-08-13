@@ -424,5 +424,4 @@ export class LeadPage {
   async scrollLeadStatusIntoView(): Promise<void> {
     await scrollIntoViewWhenVisible(webLocator(this.page, LeadPage.L.leadStatus));
   }
-
 }
