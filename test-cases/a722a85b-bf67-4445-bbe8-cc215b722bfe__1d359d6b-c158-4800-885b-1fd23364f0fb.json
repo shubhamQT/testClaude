@@ -1,0 +1,81 @@
+{
+  "id": "1d359d6b-c158-4800-885b-1fd23364f0fb",
+  "testPlanId": "a722a85b-bf67-4445-bbe8-cc215b722bfe",
+  "requirementId": "0f79ec14-b4b4-41c4-9fcc-3a26fb6f1292",
+  "suiteName": "US-001 — Create Lead E2E",
+  "case": {
+    "id": "1d359d6b-c158-4800-885b-1fd23364f0fb",
+    "title": "E2E: Validation error shown when Company is left blank during Lead creation",
+    "priority": "P0",
+    "platforms": [
+      "chrome"
+    ],
+    "preconditions": [
+      "User is authenticated as Sales Representative"
+    ],
+    "steps": [
+      {
+        "id": "s1",
+        "action": "tap",
+        "targetDescription": "Navigate to Leads tab",
+        "screenName": "HomePage",
+        "pageObjectMethod": "clickLeads"
+      },
+      {
+        "id": "s2",
+        "action": "tap",
+        "targetDescription": "Click New button",
+        "screenName": "LeadListPage",
+        "pageObjectMethod": "clickNew"
+      },
+      {
+        "id": "s3",
+        "action": "assertVisible",
+        "targetDescription": "New Lead form is displayed",
+        "screenName": "LeadListPage",
+        "pageObjectMethod": "expectNewLeadVisible"
+      },
+      {
+        "id": "s4",
+        "action": "fill",
+        "targetDescription": "Enter First Name",
+        "screenName": "LeadListPage",
+        "pageObjectMethod": "fillFirstName",
+        "value": "John"
+      },
+      {
+        "id": "s5",
+        "action": "fill",
+        "targetDescription": "Enter Last Name only, leave Company blank",
+        "screenName": "LeadListPage",
+        "pageObjectMethod": "fillLastName",
+        "value": "Smith"
+      },
+      {
+        "id": "s6",
+        "action": "tap",
+        "targetDescription": "Click Save button",
+        "screenName": "LeadListPage",
+        "pageObjectMethod": "clickSaveEdit"
+      },
+      {
+        "id": "s7",
+        "action": "assertVisible",
+        "targetDescription": "Validation error appears for Company field",
+        "locatorHint": "text=/Complete this field|required/i"
+      },
+      {
+        "id": "s8",
+        "action": "assertVisible",
+        "targetDescription": "User remains on New Lead form (not saved)",
+        "screenName": "LeadListPage",
+        "pageObjectMethod": "expectNewLeadVisible"
+      }
+    ],
+    "tags": [
+      "@e2e",
+      "@regression",
+      "@lead"
+    ]
+  }
+}

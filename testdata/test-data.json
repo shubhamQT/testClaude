@@ -1,0 +1,10 @@
+{
+  "e2eValidationErrorShownWhenLastNameIsLeftBlankDuringLeadCreation": {
+    "enterFirstName": "John",
+    "enterCompanyOnlyLeaveLastNameBlank": "ABC Technologies"
+  },
+  "e2eValidationErrorShownWhenCompanyIsLeftBlankDuringLeadCreation": {
+    "enterFirstName": "John",
+    "enterLastNameOnlyLeaveCompanyBlank": "Smith"
+  }
+}
