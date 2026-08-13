@@ -39,7 +39,6 @@ import {
   waitMs,
   webLocator,
 } from "../support/web-actions";
-import { SalesforceDataPage } from "./salesforce-data";
 
 // Salesforce object: Lead (schema-verified via Autonix Recorder)
 export class LeadPage {
@@ -52,7 +51,7 @@ export class LeadPage {
     leadStatus: { strategy: 'css' as const, value: '[field-label="Lead Status"] lightning-formatted-text', shadowHost: 'records-record-layout-item', actionKind: 'text' as const },
   } as const;
 
-  constructor(private readonly page: Page, private readonly sfData: SalesforceDataPage = new SalesforceDataPage(page)) {}
+  constructor(private readonly page: Page) {}
 
   async expectLeadVisible(timeoutMs = 30_000, soft = true): Promise<void> {
     await expectVisible(webLocator(this.page, LeadPage.L.lead), timeoutMs, soft);
@@ -85,9 +84,6 @@ export class LeadPage {
   async getInnerTextLeadStatus(): Promise<string> {
     return getTextWhenVisible(webLocator(this.page, LeadPage.L.leadStatus));
   }
-
-  async generateLeadData() { return this.sfData.generateLeadData(); }
-
 
   async clickLead(): Promise<void> {
     await clickWhenVisible(webLocator(this.page, LeadPage.L.lead));

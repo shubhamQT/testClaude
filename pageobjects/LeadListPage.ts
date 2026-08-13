@@ -40,7 +40,7 @@ import {
   webLocator,
 } from "../support/web-actions";
 import { webTable, type WebTable } from "../support/web-table";
-import { SalesforceDataPage } from "./salesforce-data";
+
 import { dataUtils } from "../support/data-utils";
 
 // Salesforce object: Lead (schema-verified via Autonix Recorder)
@@ -98,7 +98,7 @@ export class LeadListPage {
 
   readonly sldsTable1: WebTable; // columns: ["Row Number", "", "Name", "Title", "Company", "Phone", "Mobile", "Email", "Lead Status", "Owner Alias", "Action"]
 
-  constructor(private readonly page: Page, private readonly sfData: SalesforceDataPage = new SalesforceDataPage(page)) {
+  constructor(private readonly page: Page) {
     this.sldsTable1 = webTable(this.page, 'table');
   }
 
@@ -695,20 +695,6 @@ export class LeadListPage {
   async expectCompanyVisible(timeoutMs = 30_000, soft = true): Promise<void> {
     await expectVisible(webLocator(this.page, LeadListPage.L.company), timeoutMs, soft);
   }
-
-  /** Fill one or more Lead fields by API name in a single call — resolves to the
-   *  right widget (text/picklist/checkbox) automatically. Unmapped fields throw so a typo
-   *  in a field name fails the test instead of silently doing nothing. */
-  async fillLeadFields(data: Partial<Record<string, string | boolean | null>>): Promise<void> {
-    return this.sfData.fillFields(LeadListPage.L, data);
-  }
-
-  /** Read a Lead field's current displayed value by API name. */
-  async getLeadFieldValue(field: string): Promise<string> {
-    return this.sfData.getFieldValue(LeadListPage.L, field);
-  }
-
-  async generateLeadData() { return this.sfData.generateLeadData(); }
 
   /** Fills every captured Lead field on this form from a single data object and
    *  saves the record. `data` is keyed by this page's own field names below; textbox/checkbox
