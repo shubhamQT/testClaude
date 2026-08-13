@@ -41,8 +41,6 @@ import {
 } from "../support/web-actions";
 import { webTable, type WebTable } from "../support/web-table";
 
-import { dataUtils } from "../support/data-utils";
-
 // Salesforce object: Lead (schema-verified via Autonix Recorder)
 export class LeadListPage {
   private static readonly L = {
@@ -694,33 +692,6 @@ export class LeadListPage {
 
   async expectCompanyVisible(timeoutMs = 30_000, soft = true): Promise<void> {
     await expectVisible(webLocator(this.page, LeadListPage.L.company), timeoutMs, soft);
-  }
-
-  /** Fills every captured Lead field on this form from a single data object and
-   *  saves the record. `data` is keyed by this page's own field names below; textbox/checkbox
-   *  fields left out get a Faker-generated default instead of being left blank — combobox/radio
-   *  fields are only touched when explicitly provided (their valid options aren't known here).
-   *  data keys: phone, firstName, mobile, fax, title, email, website, annualRevenue, noOfEmployees, country, street, city, stateProvince, zipPostalCode, currentGeneratorS, sicCode, numberOfLocations, description. */
-  async createLead(data: { phone?: string; firstName?: string; mobile?: string; fax?: string; title?: string; email?: string; website?: string; annualRevenue?: string; noOfEmployees?: string; country?: string; street?: string; city?: string; stateProvince?: string; zipPostalCode?: string; currentGeneratorS?: string; sicCode?: string; numberOfLocations?: string; description?: string }): Promise<void> {
-    await this.fillPhone(data.phone ?? dataUtils.phone());
-    await this.fillFirstName(data.firstName ?? dataUtils.firstName());
-    await this.fillMobile(data.mobile ?? dataUtils.words(2));
-    await this.fillFax(data.fax ?? dataUtils.phone());
-    await this.fillTitle(data.title ?? dataUtils.jobTitle());
-    await this.fillEmail(data.email ?? dataUtils.email());
-    await this.fillWebsite(data.website ?? dataUtils.httpsUrl());
-    await this.fillAnnualRevenue(data.annualRevenue ?? dataUtils.words(2));
-    await this.fillNoOfEmployees(data.noOfEmployees ?? dataUtils.words(2));
-    await this.fillCountry(data.country ?? dataUtils.country());
-    await this.fillStreet(data.street ?? dataUtils.streetAddress());
-    await this.fillCity(data.city ?? dataUtils.city());
-    await this.fillStateProvince(data.stateProvince ?? dataUtils.words(2));
-    await this.fillZipPostalCode(data.zipPostalCode ?? dataUtils.words(2));
-    await this.fillCurrentGeneratorS(data.currentGeneratorS ?? dataUtils.words(2));
-    await this.fillSicCode(data.sicCode ?? dataUtils.words(2));
-    await this.fillNumberOfLocations(data.numberOfLocations ?? dataUtils.words(2));
-    await this.fillDescription(data.description ?? dataUtils.words(2));
-    await this.clickSaveEdit();
   }
 
   // ── table ──────────────────────────────────────────────
