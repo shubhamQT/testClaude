@@ -168,4 +168,5 @@ export class HomePage {
   async scrollSellerHomeIntoView(): Promise<void> {
     await scrollIntoViewWhenVisible(webLocator(this.page, HomePage.L.sellerHome));
   }
+
 }
