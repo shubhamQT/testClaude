@@ -6,5 +6,59 @@
   "e2eValidationErrorShownWhenCompanyIsLeftBlankDuringLeadCreation": {
     "enterFirstName": "John",
     "enterLastNameOnlyLeaveCompanyBlank": "Smith"
+  },
+  "createLeadWithAllMandatoryFieldsLastNameAndCompanySuccessfully": {
+    "lastNameField": "Smith",
+    "companyField": "ABC Technologies"
+  },
+  "createLeadWithAllProvidedTestDataFieldsSuccessfully": {
+    "firstNameField": "John",
+    "lastNameField": "Smith",
+    "companyField": "ABC Technologies",
+    "phoneField": "9989876789",
+    "emailField": "john.smith@example.com",
+    "leadSourceDropdown": "Web"
+  },
+  "leadStatusDefaultsToOpenNotContactedAfterSuccessfulLeadCreation": {
+    "firstNameField": "John",
+    "lastNameField": "Smith",
+    "companyField": "ABC Technologies"
+  },
+  "userIsRedirectedToNewlyCreatedLeadRecordPageAfterSuccessfulSave": {
+    "lastNameField": "Smith",
+    "companyField": "ABC Technologies"
+  },
+  "validationErrorAppearsWhenLastNameIsLeftBlankOnSave": {
+    "companyField": "ABC Technologies"
+  },
+  "validationErrorAppearsWhenCompanyIsLeftBlankOnSave": {
+    "lastNameField": "Smith"
+  },
+  "leadRecordPageShowsCorrectLeadNameAfterCreationWithFirstAndLastName": {
+    "firstNameField": "John",
+    "lastNameField": "Smith",
+    "companyField": "ABC Technologies"
+  },
+  "leadDetailsTabShowsLeadStatusAsOpenNotContacted": {
+    "firstNameField": "John",
+    "lastNameField": "Smith",
+    "companyField": "ABC Technologies"
+  },
+  "cancelButtonOnNewLeadFormDiscardsChangesAndReturnsToLeadsList": {
+    "lastNameField": "Smith",
+    "companyField": "ABC Technologies"
+  },
+  "createLeadWithOnlyMandatoryFieldsLastNameAndCompanyNoOptionalFields": {
+    "lastNameField": "Smith",
+    "companyField": "ABC Technologies"
+  },
+  "createLeadUsingSaveNewSavesTheLeadAndOpensANewBlankForm": {
+    "lastNameField": "Smith",
+    "companyField": "ABC Technologies"
+  },
+  "newlyCreatedLeadAppearsInTheLeadsListAfterCreation": {
+    "firstNameField": "John",
+    "lastNameField": "Smith",
+    "companyField": "ABC Technologies"
   }
 }

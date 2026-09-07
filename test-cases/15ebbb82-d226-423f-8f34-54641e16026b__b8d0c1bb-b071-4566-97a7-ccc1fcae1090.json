@@ -1,0 +1,78 @@
+{
+  "id": "b8d0c1bb-b071-4566-97a7-ccc1fcae1090",
+  "testPlanId": "15ebbb82-d226-423f-8f34-54641e16026b",
+  "requirementId": "0f79ec14-b4b4-41c4-9fcc-3a26fb6f1292",
+  "suiteName": "US-001 - Create Lead",
+  "case": {
+    "id": "b8d0c1bb-b071-4566-97a7-ccc1fcae1090",
+    "title": "New Lead form displays all key input fields",
+    "priority": "P1",
+    "platforms": [
+      "chrome"
+    ],
+    "preconditions": [
+      "User is authenticated and on the Home page"
+    ],
+    "steps": [
+      {
+        "id": "step-1",
+        "action": "openUrl",
+        "targetDescription": "Navigate to the application home page",
+        "value": "/"
+      },
+      {
+        "id": "step-2",
+        "action": "tap",
+        "targetDescription": "Leads tab in navigation",
+        "screenName": "HomePage",
+        "pageObjectMethod": "clickLeads"
+      },
+      {
+        "id": "step-3",
+        "action": "tap",
+        "targetDescription": "New button on Leads list page",
+        "screenName": "LeadListPage",
+        "pageObjectMethod": "clickNew"
+      },
+      {
+        "id": "step-4",
+        "action": "assertVisible",
+        "targetDescription": "First Name field is visible",
+        "screenName": "LeadListPage",
+        "pageObjectMethod": "expectFirstNameVisible"
+      },
+      {
+        "id": "step-5",
+        "action": "assertVisible",
+        "targetDescription": "Last Name field is visible",
+        "screenName": "LeadListPage",
+        "pageObjectMethod": "expectLastNameVisible"
+      },
+      {
+        "id": "step-6",
+        "action": "assertVisible",
+        "targetDescription": "Company field is visible",
+        "screenName": "LeadListPage",
+        "pageObjectMethod": "expectCompanyVisible"
+      },
+      {
+        "id": "step-7",
+        "action": "assertVisible",
+        "targetDescription": "Phone field is visible",
+        "screenName": "LeadListPage",
+        "pageObjectMethod": "expectPhoneVisible"
+      },
+      {
+        "id": "step-8",
+        "action": "assertVisible",
+        "targetDescription": "Email field is visible",
+        "screenName": "LeadListPage",
+        "pageObjectMethod": "expectEmailVisible"
+      }
+    ],
+    "tags": [
+      "@functional",
+      "@regression"
+    ]
+  }
+}

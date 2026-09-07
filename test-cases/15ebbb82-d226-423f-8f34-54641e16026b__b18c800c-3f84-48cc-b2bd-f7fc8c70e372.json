@@ -1,0 +1,96 @@
+{
+  "id": "b18c800c-3f84-48cc-b2bd-f7fc8c70e372",
+  "testPlanId": "15ebbb82-d226-423f-8f34-54641e16026b",
+  "requirementId": "0f79ec14-b4b4-41c4-9fcc-3a26fb6f1292",
+  "suiteName": "US-001 - Create Lead",
+  "case": {
+    "id": "b18c800c-3f84-48cc-b2bd-f7fc8c70e372",
+    "title": "Lead Details tab shows Lead Status as Open - Not Contacted",
+    "priority": "P1",
+    "platforms": [
+      "chrome"
+    ],
+    "preconditions": [
+      "User is authenticated and on the Home page"
+    ],
+    "steps": [
+      {
+        "id": "step-1",
+        "action": "openUrl",
+        "targetDescription": "Navigate to the application home page",
+        "value": "/"
+      },
+      {
+        "id": "step-2",
+        "action": "tap",
+        "targetDescription": "Leads tab in navigation",
+        "screenName": "HomePage",
+        "pageObjectMethod": "clickLeads"
+      },
+      {
+        "id": "step-3",
+        "action": "tap",
+        "targetDescription": "New button on Leads list page",
+        "screenName": "LeadListPage",
+        "pageObjectMethod": "clickNew"
+      },
+      {
+        "id": "step-4",
+        "action": "fill",
+        "targetDescription": "First Name field",
+        "screenName": "LeadListPage",
+        "pageObjectMethod": "fillFirstName",
+        "value": "John"
+      },
+      {
+        "id": "step-5",
+        "action": "fill",
+        "targetDescription": "Last Name field",
+        "screenName": "LeadListPage",
+        "pageObjectMethod": "fillLastName",
+        "value": "Smith"
+      },
+      {
+        "id": "step-6",
+        "action": "fill",
+        "targetDescription": "Company field",
+        "screenName": "LeadListPage",
+        "pageObjectMethod": "fillCompany",
+        "value": "ABC Technologies"
+      },
+      {
+        "id": "step-7",
+        "action": "tap",
+        "targetDescription": "Save button",
+        "screenName": "LeadListPage",
+        "pageObjectMethod": "clickSaveEdit"
+      },
+      {
+        "id": "step-8",
+        "action": "tap",
+        "targetDescription": "Details tab on Lead record page",
+        "screenName": "LeadPage",
+        "pageObjectMethod": "clickDetails"
+      },
+      {
+        "id": "step-9",
+        "action": "assertVisible",
+        "targetDescription": "Lead Status field shows Open - Not Contacted",
+        "screenName": "LeadPage",
+        "pageObjectMethod": "expectLeadStatusVisible"
+      },
+      {
+        "id": "step-10",
+        "action": "assertContainsText",
+        "targetDescription": "Lead Status value contains Open - Not Contacted",
+        "screenName": "LeadPage",
+        "pageObjectMethod": "expectLeadStatusContainsText",
+        "assertion": "Open - Not Contacted"
+      }
+    ],
+    "tags": [
+      "@functional",
+      "@regression"
+    ]
+  }
+}

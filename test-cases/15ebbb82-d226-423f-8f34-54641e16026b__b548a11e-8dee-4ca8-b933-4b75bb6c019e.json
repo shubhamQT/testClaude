@@ -1,0 +1,63 @@
+{
+  "id": "b548a11e-8dee-4ca8-b933-4b75bb6c019e",
+  "testPlanId": "15ebbb82-d226-423f-8f34-54641e16026b",
+  "requirementId": "0f79ec14-b4b4-41c4-9fcc-3a26fb6f1292",
+  "suiteName": "US-001 - Create Lead",
+  "case": {
+    "id": "b548a11e-8dee-4ca8-b933-4b75bb6c019e",
+    "title": "Validation errors appear when both Last Name and Company are left blank on save",
+    "priority": "P0",
+    "platforms": [
+      "chrome"
+    ],
+    "preconditions": [
+      "User is authenticated and on the Home page"
+    ],
+    "steps": [
+      {
+        "id": "step-1",
+        "action": "openUrl",
+        "targetDescription": "Navigate to the application home page",
+        "value": "/"
+      },
+      {
+        "id": "step-2",
+        "action": "tap",
+        "targetDescription": "Leads tab in navigation",
+        "screenName": "HomePage",
+        "pageObjectMethod": "clickLeads"
+      },
+      {
+        "id": "step-3",
+        "action": "tap",
+        "targetDescription": "New button on Leads list page",
+        "screenName": "LeadListPage",
+        "pageObjectMethod": "clickNew"
+      },
+      {
+        "id": "step-4",
+        "action": "tap",
+        "targetDescription": "Save button without filling any fields",
+        "screenName": "LeadListPage",
+        "pageObjectMethod": "clickSaveEdit"
+      },
+      {
+        "id": "step-5",
+        "action": "assertVisible",
+        "targetDescription": "Validation error for Company field is displayed",
+        "screenName": "CommonPage",
+        "pageObjectMethod": "expectValidationErrorAppearsForCompanyFieldVisible"
+      },
+      {
+        "id": "step-6",
+        "action": "assertVisible",
+        "targetDescription": "Validation error for Last Name field is displayed",
+        "locatorHint": "[data-field='LastName'] .slds-has-error, .errorMsg, [class*='error']"
+      }
+    ],
+    "tags": [
+      "@functional",
+      "@regression"
+    ]
+  }
+}

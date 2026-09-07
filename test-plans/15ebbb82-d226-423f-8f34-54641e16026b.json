@@ -1,0 +1,1265 @@
+{
+  "id": "15ebbb82-d226-423f-8f34-54641e16026b",
+  "requirementId": "0f79ec14-b4b4-41c4-9fcc-3a26fb6f1292",
+  "model": "claude-sonnet-4-6",
+  "createdAt": "2026-08-13T14:09:10.385Z",
+  "plan": {
+    "version": 1,
+    "suiteName": "US-001 - Create Lead",
+    "cases": [
+      {
+        "id": "b319f83c-20db-4597-ba20-8a49e3c6fa90",
+        "title": "Navigate to Leads tab from Home page",
+        "priority": "P0",
+        "platforms": [
+          "chrome"
+        ],
+        "preconditions": [
+          "User is authenticated and on the Home page"
+        ],
+        "steps": [
+          {
+            "id": "step-1",
+            "action": "openUrl",
+            "targetDescription": "Navigate to the application home page",
+            "value": "/"
+          },
+          {
+            "id": "step-2",
+            "action": "tap",
+            "targetDescription": "Leads tab in navigation",
+            "screenName": "HomePage",
+            "pageObjectMethod": "clickLeads"
+          },
+          {
+            "id": "step-3",
+            "action": "assertVisible",
+            "targetDescription": "Leads list page is displayed",
+            "screenName": "LeadListPage",
+            "pageObjectMethod": "expectLeadsRecentlyViewedVisible"
+          }
+        ],
+        "tags": [
+          "@functional",
+          "@regression"
+        ]
+      },
+      {
+        "id": "d8503010-dad5-447b-8469-9a6475b59572",
+        "title": "Click New button on Leads list page opens New Lead form",
+        "priority": "P0",
+        "platforms": [
+          "chrome"
+        ],
+        "preconditions": [
+          "User is authenticated and on the Home page"
+        ],
+        "steps": [
+          {
+            "id": "step-1",
+            "action": "openUrl",
+            "targetDescription": "Navigate to the application home page",
+            "value": "/"
+          },
+          {
+            "id": "step-2",
+            "action": "tap",
+            "targetDescription": "Leads tab in navigation",
+            "screenName": "HomePage",
+            "pageObjectMethod": "clickLeads"
+          },
+          {
+            "id": "step-3",
+            "action": "tap",
+            "targetDescription": "New button on Leads list page",
+            "screenName": "LeadListPage",
+            "pageObjectMethod": "clickNew"
+          },
+          {
+            "id": "step-4",
+            "action": "assertVisible",
+            "targetDescription": "New Lead form is displayed",
+            "screenName": "LeadListPage",
+            "pageObjectMethod": "expectNewLeadVisible"
+          }
+        ],
+        "tags": [
+          "@functional",
+          "@regression"
+        ]
+      },
+      {
+        "id": "1609378e-751b-42b4-b17b-ef42cb98008e",
+        "title": "Create Lead with all mandatory fields (Last Name and Company) successfully",
+        "priority": "P0",
+        "platforms": [
+          "chrome"
+        ],
+        "preconditions": [
+          "User is authenticated and on the Home page"
+        ],
+        "steps": [
+          {
+            "id": "step-1",
+            "action": "openUrl",
+            "targetDescription": "Navigate to the application home page",
+            "value": "/"
+          },
+          {
+            "id": "step-2",
+            "action": "tap",
+            "targetDescription": "Leads tab in navigation",
+            "screenName": "HomePage",
+            "pageObjectMethod": "clickLeads"
+          },
+          {
+            "id": "step-3",
+            "action": "tap",
+            "targetDescription": "New button on Leads list page",
+            "screenName": "LeadListPage",
+            "pageObjectMethod": "clickNew"
+          },
+          {
+            "id": "step-4",
+            "action": "fill",
+            "targetDescription": "Last Name field",
+            "screenName": "LeadListPage",
+            "pageObjectMethod": "fillLastName",
+            "value": "Smith"
+          },
+          {
+            "id": "step-5",
+            "action": "fill",
+            "targetDescription": "Company field",
+            "screenName": "LeadListPage",
+            "pageObjectMethod": "fillCompany",
+            "value": "ABC Technologies"
+          },
+          {
+            "id": "step-6",
+            "action": "tap",
+            "targetDescription": "Save button",
+            "screenName": "LeadListPage",
+            "pageObjectMethod": "clickSaveEdit"
+          },
+          {
+            "id": "step-7",
+            "action": "assertVisible",
+            "targetDescription": "Newly created Lead record page is displayed",
+            "screenName": "LeadPage",
+            "pageObjectMethod": "expectLeadVisible"
+          }
+        ],
+        "tags": [
+          "@functional",
+          "@regression"
+        ]
+      },
+      {
+        "id": "1405837e-5886-4359-bc2a-aa0d31d1ca24",
+        "title": "Create Lead with all provided test data fields successfully",
+        "priority": "P0",
+        "platforms": [
+          "chrome"
+        ],
+        "preconditions": [
+          "User is authenticated and on the Home page"
+        ],
+        "steps": [
+          {
+            "id": "step-1",
+            "action": "openUrl",
+            "targetDescription": "Navigate to the application home page",
+            "value": "/"
+          },
+          {
+            "id": "step-2",
+            "action": "tap",
+            "targetDescription": "Leads tab in navigation",
+            "screenName": "HomePage",
+            "pageObjectMethod": "clickLeads"
+          },
+          {
+            "id": "step-3",
+            "action": "tap",
+            "targetDescription": "New button on Leads list page",
+            "screenName": "LeadListPage",
+            "pageObjectMethod": "clickNew"
+          },
+          {
+            "id": "step-4",
+            "action": "fill",
+            "targetDescription": "First Name field",
+            "screenName": "LeadListPage",
+            "pageObjectMethod": "fillFirstName",
+            "value": "John"
+          },
+          {
+            "id": "step-5",
+            "action": "fill",
+            "targetDescription": "Last Name field",
+            "screenName": "LeadListPage",
+            "pageObjectMethod": "fillLastName",
+            "value": "Smith"
+          },
+          {
+            "id": "step-6",
+            "action": "fill",
+            "targetDescription": "Company field",
+            "screenName": "LeadListPage",
+            "pageObjectMethod": "fillCompany",
+            "value": "ABC Technologies"
+          },
+          {
+            "id": "step-7",
+            "action": "fill",
+            "targetDescription": "Phone field",
+            "screenName": "LeadListPage",
+            "pageObjectMethod": "fillPhone",
+            "value": "9989876789"
+          },
+          {
+            "id": "step-8",
+            "action": "fill",
+            "targetDescription": "Email field",
+            "screenName": "LeadListPage",
+            "pageObjectMethod": "fillEmail",
+            "value": "john.smith@example.com"
+          },
+          {
+            "id": "step-9",
+            "action": "selectOption",
+            "targetDescription": "Lead Source dropdown",
+            "screenName": "LeadListPage",
+            "pageObjectMethod": "clickLeadSource",
+            "value": "Web"
+          },
+          {
+            "id": "step-10",
+            "action": "tap",
+            "targetDescription": "Save button",
+            "screenName": "LeadListPage",
+            "pageObjectMethod": "clickSaveEdit"
+          },
+          {
+            "id": "step-11",
+            "action": "assertVisible",
+            "targetDescription": "Newly created Lead record page is displayed",
+            "screenName": "LeadPage",
+            "pageObjectMethod": "expectLeadVisible"
+          }
+        ],
+        "tags": [
+          "@functional",
+          "@regression"
+        ]
+      },
+      {
+        "id": "a2c7f20e-9a3e-4f2e-b3d8-8096a9c7a25c",
+        "title": "Lead Status defaults to 'Open - Not Contacted' after successful Lead creation",
+        "priority": "P0",
+        "platforms": [
+          "chrome"
+        ],
+        "preconditions": [
+          "User is authenticated and on the Home page"
+        ],
+        "steps": [
+          {
+            "id": "step-1",
+            "action": "openUrl",
+            "targetDescription": "Navigate to the application home page",
+            "value": "/"
+          },
+          {
+            "id": "step-2",
+            "action": "tap",
+            "targetDescription": "Leads tab in navigation",
+            "screenName": "HomePage",
+            "pageObjectMethod": "clickLeads"
+          },
+          {
+            "id": "step-3",
+            "action": "tap",
+            "targetDescription": "New button on Leads list page",
+            "screenName": "LeadListPage",
+            "pageObjectMethod": "clickNew"
+          },
+          {
+            "id": "step-4",
+            "action": "fill",
+            "targetDescription": "First Name field",
+            "screenName": "LeadListPage",
+            "pageObjectMethod": "fillFirstName",
+            "value": "John"
+          },
+          {
+            "id": "step-5",
+            "action": "fill",
+            "targetDescription": "Last Name field",
+            "screenName": "LeadListPage",
+            "pageObjectMethod": "fillLastName",
+            "value": "Smith"
+          },
+          {
+            "id": "step-6",
+            "action": "fill",
+            "targetDescription": "Company field",
+            "screenName": "LeadListPage",
+            "pageObjectMethod": "fillCompany",
+            "value": "ABC Technologies"
+          },
+          {
+            "id": "step-7",
+            "action": "tap",
+            "targetDescription": "Save button",
+            "screenName": "LeadListPage",
+            "pageObjectMethod": "clickSaveEdit"
+          },
+          {
+            "id": "step-8",
+            "action": "assertVisible",
+            "targetDescription": "Open - Not Contacted status badge is visible on Lead record",
+            "screenName": "LeadPage",
+            "pageObjectMethod": "expectOpenNotContactedVisible"
+          }
+        ],
+        "tags": [
+          "@functional",
+          "@regression"
+        ]
+      },
+      {
+        "id": "64043021-5673-4e78-82c1-193011010c96",
+        "title": "User is redirected to newly created Lead record page after successful save",
+        "priority": "P0",
+        "platforms": [
+          "chrome"
+        ],
+        "preconditions": [
+          "User is authenticated and on the Home page"
+        ],
+        "steps": [
+          {
+            "id": "step-1",
+            "action": "openUrl",
+            "targetDescription": "Navigate to the application home page",
+            "value": "/"
+          },
+          {
+            "id": "step-2",
+            "action": "tap",
+            "targetDescription": "Leads tab in navigation",
+            "screenName": "HomePage",
+            "pageObjectMethod": "clickLeads"
+          },
+          {
+            "id": "step-3",
+            "action": "tap",
+            "targetDescription": "New button on Leads list page",
+            "screenName": "LeadListPage",
+            "pageObjectMethod": "clickNew"
+          },
+          {
+            "id": "step-4",
+            "action": "fill",
+            "targetDescription": "Last Name field",
+            "screenName": "LeadListPage",
+            "pageObjectMethod": "fillLastName",
+            "value": "Smith"
+          },
+          {
+            "id": "step-5",
+            "action": "fill",
+            "targetDescription": "Company field",
+            "screenName": "LeadListPage",
+            "pageObjectMethod": "fillCompany",
+            "value": "ABC Technologies"
+          },
+          {
+            "id": "step-6",
+            "action": "tap",
+            "targetDescription": "Save button",
+            "screenName": "LeadListPage",
+            "pageObjectMethod": "clickSaveEdit"
+          },
+          {
+            "id": "step-7",
+            "action": "assertVisible",
+            "targetDescription": "Lead record page is displayed with the lead name",
+            "screenName": "LeadPage",
+            "pageObjectMethod": "expectLeadNameVisible"
+          },
+          {
+            "id": "step-8",
+            "action": "assertContainsText",
+            "targetDescription": "Lead name on record page contains the created lead's name",
+            "screenName": "LeadPage",
+            "pageObjectMethod": "expectLeadNameContainsText",
+            "assertion": "Smith"
+          }
+        ],
+        "tags": [
+          "@functional",
+          "@regression"
+        ]
+      },
+      {
+        "id": "79c1febc-cb23-4415-be54-c55a58857e0c",
+        "title": "New Lead form displays Lead Information section",
+        "priority": "P1",
+        "platforms": [
+          "chrome"
+        ],
+        "preconditions": [
+          "User is authenticated and on the Home page"
+        ],
+        "steps": [
+          {
+            "id": "step-1",
+            "action": "openUrl",
+            "targetDescription": "Navigate to the application home page",
+            "value": "/"
+          },
+          {
+            "id": "step-2",
+            "action": "tap",
+            "targetDescription": "Leads tab in navigation",
+            "screenName": "HomePage",
+            "pageObjectMethod": "clickLeads"
+          },
+          {
+            "id": "step-3",
+            "action": "tap",
+            "targetDescription": "New button on Leads list page",
+            "screenName": "LeadListPage",
+            "pageObjectMethod": "clickNew"
+          },
+          {
+            "id": "step-4",
+            "action": "assertVisible",
+            "targetDescription": "Lead Information section is visible on the form",
+            "screenName": "LeadListPage",
+            "pageObjectMethod": "expectLeadInformationVisible"
+          }
+        ],
+        "tags": [
+          "@functional",
+          "@regression"
+        ]
+      },
+      {
+        "id": "b8d0c1bb-b071-4566-97a7-ccc1fcae1090",
+        "title": "New Lead form displays all key input fields",
+        "priority": "P1",
+        "platforms": [
+          "chrome"
+        ],
+        "preconditions": [
+          "User is authenticated and on the Home page"
+        ],
+        "steps": [
+          {
+            "id": "step-1",
+            "action": "openUrl",
+            "targetDescription": "Navigate to the application home page",
+            "value": "/"
+          },
+          {
+            "id": "step-2",
+            "action": "tap",
+            "targetDescription": "Leads tab in navigation",
+            "screenName": "HomePage",
+            "pageObjectMethod": "clickLeads"
+          },
+          {
+            "id": "step-3",
+            "action": "tap",
+            "targetDescription": "New button on Leads list page",
+            "screenName": "LeadListPage",
+            "pageObjectMethod": "clickNew"
+          },
+          {
+            "id": "step-4",
+            "action": "assertVisible",
+            "targetDescription": "First Name field is visible",
+            "screenName": "LeadListPage",
+            "pageObjectMethod": "expectFirstNameVisible"
+          },
+          {
+            "id": "step-5",
+            "action": "assertVisible",
+            "targetDescription": "Last Name field is visible",
+            "screenName": "LeadListPage",
+            "pageObjectMethod": "expectLastNameVisible"
+          },
+          {
+            "id": "step-6",
+            "action": "assertVisible",
+            "targetDescription": "Company field is visible",
+            "screenName": "LeadListPage",
+            "pageObjectMethod": "expectCompanyVisible"
+          },
+          {
+            "id": "step-7",
+            "action": "assertVisible",
+            "targetDescription": "Phone field is visible",
+            "screenName": "LeadListPage",
+            "pageObjectMethod": "expectPhoneVisible"
+          },
+          {
+            "id": "step-8",
+            "action": "assertVisible",
+            "targetDescription": "Email field is visible",
+            "screenName": "LeadListPage",
+            "pageObjectMethod": "expectEmailVisible"
+          }
+        ],
+        "tags": [
+          "@functional",
+          "@regression"
+        ]
+      },
+      {
+        "id": "812d5f8c-8fa2-4dc2-aac2-853725bcc219",
+        "title": "New Lead form displays Save and Cancel buttons",
+        "priority": "P1",
+        "platforms": [
+          "chrome"
+        ],
+        "preconditions": [
+          "User is authenticated and on the Home page"
+        ],
+        "steps": [
+          {
+            "id": "step-1",
+            "action": "openUrl",
+            "targetDescription": "Navigate to the application home page",
+            "value": "/"
+          },
+          {
+            "id": "step-2",
+            "action": "tap",
+            "targetDescription": "Leads tab in navigation",
+            "screenName": "HomePage",
+            "pageObjectMethod": "clickLeads"
+          },
+          {
+            "id": "step-3",
+            "action": "tap",
+            "targetDescription": "New button on Leads list page",
+            "screenName": "LeadListPage",
+            "pageObjectMethod": "clickNew"
+          },
+          {
+            "id": "step-4",
+            "action": "assertVisible",
+            "targetDescription": "Save button is visible on the form",
+            "screenName": "LeadListPage",
+            "pageObjectMethod": "expectSaveEditVisible"
+          },
+          {
+            "id": "step-5",
+            "action": "assertVisible",
+            "targetDescription": "Cancel button is visible on the form",
+            "screenName": "LeadListPage",
+            "pageObjectMethod": "expectCancelEditVisible"
+          }
+        ],
+        "tags": [
+          "@functional",
+          "@regression"
+        ]
+      },
+      {
+        "id": "4ba5ca57-1e63-4f94-8ca6-9eaff5fa3bfe",
+        "title": "Validation error appears when Last Name is left blank on save",
+        "priority": "P0",
+        "platforms": [
+          "chrome"
+        ],
+        "preconditions": [
+          "User is authenticated and on the Home page"
+        ],
+        "steps": [
+          {
+            "id": "step-1",
+            "action": "openUrl",
+            "targetDescription": "Navigate to the application home page",
+            "value": "/"
+          },
+          {
+            "id": "step-2",
+            "action": "tap",
+            "targetDescription": "Leads tab in navigation",
+            "screenName": "HomePage",
+            "pageObjectMethod": "clickLeads"
+          },
+          {
+            "id": "step-3",
+            "action": "tap",
+            "targetDescription": "New button on Leads list page",
+            "screenName": "LeadListPage",
+            "pageObjectMethod": "clickNew"
+          },
+          {
+            "id": "step-4",
+            "action": "fill",
+            "targetDescription": "Company field",
+            "screenName": "LeadListPage",
+            "pageObjectMethod": "fillCompany",
+            "value": "ABC Technologies"
+          },
+          {
+            "id": "step-5",
+            "action": "tap",
+            "targetDescription": "Save button",
+            "screenName": "LeadListPage",
+            "pageObjectMethod": "clickSaveEdit"
+          },
+          {
+            "id": "step-6",
+            "action": "assertVisible",
+            "targetDescription": "Validation error for Last Name field is displayed",
+            "locatorHint": "[data-field='LastName'] .slds-has-error, .errorMsg, [class*='error']"
+          }
+        ],
+        "tags": [
+          "@functional",
+          "@regression"
+        ]
+      },
+      {
+        "id": "80560f82-abf5-4844-a5b3-5f8bac77ebcc",
+        "title": "Validation error appears when Company is left blank on save",
+        "priority": "P0",
+        "platforms": [
+          "chrome"
+        ],
+        "preconditions": [
+          "User is authenticated and on the Home page"
+        ],
+        "steps": [
+          {
+            "id": "step-1",
+            "action": "openUrl",
+            "targetDescription": "Navigate to the application home page",
+            "value": "/"
+          },
+          {
+            "id": "step-2",
+            "action": "tap",
+            "targetDescription": "Leads tab in navigation",
+            "screenName": "HomePage",
+            "pageObjectMethod": "clickLeads"
+          },
+          {
+            "id": "step-3",
+            "action": "tap",
+            "targetDescription": "New button on Leads list page",
+            "screenName": "LeadListPage",
+            "pageObjectMethod": "clickNew"
+          },
+          {
+            "id": "step-4",
+            "action": "fill",
+            "targetDescription": "Last Name field",
+            "screenName": "LeadListPage",
+            "pageObjectMethod": "fillLastName",
+            "value": "Smith"
+          },
+          {
+            "id": "step-5",
+            "action": "tap",
+            "targetDescription": "Save button",
+            "screenName": "LeadListPage",
+            "pageObjectMethod": "clickSaveEdit"
+          },
+          {
+            "id": "step-6",
+            "action": "assertVisible",
+            "targetDescription": "Validation error for Company field is displayed",
+            "screenName": "CommonPage",
+            "pageObjectMethod": "expectValidationErrorAppearsForCompanyFieldVisible"
+          }
+        ],
+        "tags": [
+          "@functional",
+          "@regression"
+        ]
+      },
+      {
+        "id": "b548a11e-8dee-4ca8-b933-4b75bb6c019e",
+        "title": "Validation errors appear when both Last Name and Company are left blank on save",
+        "priority": "P0",
+        "platforms": [
+          "chrome"
+        ],
+        "preconditions": [
+          "User is authenticated and on the Home page"
+        ],
+        "steps": [
+          {
+            "id": "step-1",
+            "action": "openUrl",
+            "targetDescription": "Navigate to the application home page",
+            "value": "/"
+          },
+          {
+            "id": "step-2",
+            "action": "tap",
+            "targetDescription": "Leads tab in navigation",
+            "screenName": "HomePage",
+            "pageObjectMethod": "clickLeads"
+          },
+          {
+            "id": "step-3",
+            "action": "tap",
+            "targetDescription": "New button on Leads list page",
+            "screenName": "LeadListPage",
+            "pageObjectMethod": "clickNew"
+          },
+          {
+            "id": "step-4",
+            "action": "tap",
+            "targetDescription": "Save button without filling any fields",
+            "screenName": "LeadListPage",
+            "pageObjectMethod": "clickSaveEdit"
+          },
+          {
+            "id": "step-5",
+            "action": "assertVisible",
+            "targetDescription": "Validation error for Company field is displayed",
+            "screenName": "CommonPage",
+            "pageObjectMethod": "expectValidationErrorAppearsForCompanyFieldVisible"
+          },
+          {
+            "id": "step-6",
+            "action": "assertVisible",
+            "targetDescription": "Validation error for Last Name field is displayed",
+            "locatorHint": "[data-field='LastName'] .slds-has-error, .errorMsg, [class*='error']"
+          }
+        ],
+        "tags": [
+          "@functional",
+          "@regression"
+        ]
+      },
+      {
+        "id": "e9d39bf6-c518-4ac3-8e37-ff6aeba4e05d",
+        "title": "Lead record page shows correct Lead Name after creation with First and Last Name",
+        "priority": "P1",
+        "platforms": [
+          "chrome"
+        ],
+        "preconditions": [
+          "User is authenticated and on the Home page"
+        ],
+        "steps": [
+          {
+            "id": "step-1",
+            "action": "openUrl",
+            "targetDescription": "Navigate to the application home page",
+            "value": "/"
+          },
+          {
+            "id": "step-2",
+            "action": "tap",
+            "targetDescription": "Leads tab in navigation",
+            "screenName": "HomePage",
+            "pageObjectMethod": "clickLeads"
+          },
+          {
+            "id": "step-3",
+            "action": "tap",
+            "targetDescription": "New button on Leads list page",
+            "screenName": "LeadListPage",
+            "pageObjectMethod": "clickNew"
+          },
+          {
+            "id": "step-4",
+            "action": "fill",
+            "targetDescription": "First Name field",
+            "screenName": "LeadListPage",
+            "pageObjectMethod": "fillFirstName",
+            "value": "John"
+          },
+          {
+            "id": "step-5",
+            "action": "fill",
+            "targetDescription": "Last Name field",
+            "screenName": "LeadListPage",
+            "pageObjectMethod": "fillLastName",
+            "value": "Smith"
+          },
+          {
+            "id": "step-6",
+            "action": "fill",
+            "targetDescription": "Company field",
+            "screenName": "LeadListPage",
+            "pageObjectMethod": "fillCompany",
+            "value": "ABC Technologies"
+          },
+          {
+            "id": "step-7",
+            "action": "tap",
+            "targetDescription": "Save button",
+            "screenName": "LeadListPage",
+            "pageObjectMethod": "clickSaveEdit"
+          },
+          {
+            "id": "step-8",
+            "action": "assertContainsText",
+            "targetDescription": "Lead name on record page contains John",
+            "screenName": "LeadPage",
+            "pageObjectMethod": "expectLeadNameContainsText",
+            "assertion": "John"
+          },
+          {
+            "id": "step-9",
+            "action": "assertContainsText",
+            "targetDescription": "Lead name on record page contains Smith",
+            "screenName": "LeadPage",
+            "pageObjectMethod": "expectLeadNameContainsText",
+            "assertion": "Smith"
+          }
+        ],
+        "tags": [
+          "@functional",
+          "@regression"
+        ]
+      },
+      {
+        "id": "b18c800c-3f84-48cc-b2bd-f7fc8c70e372",
+        "title": "Lead Details tab shows Lead Status as Open - Not Contacted",
+        "priority": "P1",
+        "platforms": [
+          "chrome"
+        ],
+        "preconditions": [
+          "User is authenticated and on the Home page"
+        ],
+        "steps": [
+          {
+            "id": "step-1",
+            "action": "openUrl",
+            "targetDescription": "Navigate to the application home page",
+            "value": "/"
+          },
+          {
+            "id": "step-2",
+            "action": "tap",
+            "targetDescription": "Leads tab in navigation",
+            "screenName": "HomePage",
+            "pageObjectMethod": "clickLeads"
+          },
+          {
+            "id": "step-3",
+            "action": "tap",
+            "targetDescription": "New button on Leads list page",
+            "screenName": "LeadListPage",
+            "pageObjectMethod": "clickNew"
+          },
+          {
+            "id": "step-4",
+            "action": "fill",
+            "targetDescription": "First Name field",
+            "screenName": "LeadListPage",
+            "pageObjectMethod": "fillFirstName",
+            "value": "John"
+          },
+          {
+            "id": "step-5",
+            "action": "fill",
+            "targetDescription": "Last Name field",
+            "screenName": "LeadListPage",
+            "pageObjectMethod": "fillLastName",
+            "value": "Smith"
+          },
+          {
+            "id": "step-6",
+            "action": "fill",
+            "targetDescription": "Company field",
+            "screenName": "LeadListPage",
+            "pageObjectMethod": "fillCompany",
+            "value": "ABC Technologies"
+          },
+          {
+            "id": "step-7",
+            "action": "tap",
+            "targetDescription": "Save button",
+            "screenName": "LeadListPage",
+            "pageObjectMethod": "clickSaveEdit"
+          },
+          {
+            "id": "step-8",
+            "action": "tap",
+            "targetDescription": "Details tab on Lead record page",
+            "screenName": "LeadPage",
+            "pageObjectMethod": "clickDetails"
+          },
+          {
+            "id": "step-9",
+            "action": "assertVisible",
+            "targetDescription": "Lead Status field shows Open - Not Contacted",
+            "screenName": "LeadPage",
+            "pageObjectMethod": "expectLeadStatusVisible"
+          },
+          {
+            "id": "step-10",
+            "action": "assertContainsText",
+            "targetDescription": "Lead Status value contains Open - Not Contacted",
+            "screenName": "LeadPage",
+            "pageObjectMethod": "expectLeadStatusContainsText",
+            "assertion": "Open - Not Contacted"
+          }
+        ],
+        "tags": [
+          "@functional",
+          "@regression"
+        ]
+      },
+      {
+        "id": "dfd74c06-0022-41b5-ae9e-7a54a4c84faf",
+        "title": "Cancel button on New Lead form discards changes and returns to Leads list",
+        "priority": "P1",
+        "platforms": [
+          "chrome"
+        ],
+        "preconditions": [
+          "User is authenticated and on the Home page"
+        ],
+        "steps": [
+          {
+            "id": "step-1",
+            "action": "openUrl",
+            "targetDescription": "Navigate to the application home page",
+            "value": "/"
+          },
+          {
+            "id": "step-2",
+            "action": "tap",
+            "targetDescription": "Leads tab in navigation",
+            "screenName": "HomePage",
+            "pageObjectMethod": "clickLeads"
+          },
+          {
+            "id": "step-3",
+            "action": "tap",
+            "targetDescription": "New button on Leads list page",
+            "screenName": "LeadListPage",
+            "pageObjectMethod": "clickNew"
+          },
+          {
+            "id": "step-4",
+            "action": "fill",
+            "targetDescription": "Last Name field",
+            "screenName": "LeadListPage",
+            "pageObjectMethod": "fillLastName",
+            "value": "Smith"
+          },
+          {
+            "id": "step-5",
+            "action": "fill",
+            "targetDescription": "Company field",
+            "screenName": "LeadListPage",
+            "pageObjectMethod": "fillCompany",
+            "value": "ABC Technologies"
+          },
+          {
+            "id": "step-6",
+            "action": "tap",
+            "targetDescription": "Cancel button on New Lead form",
+            "screenName": "LeadListPage",
+            "pageObjectMethod": "clickCancelEdit"
+          },
+          {
+            "id": "step-7",
+            "action": "assertVisible",
+            "targetDescription": "Leads list page is displayed again",
+            "screenName": "LeadListPage",
+            "pageObjectMethod": "expectNewVisible"
+          }
+        ],
+        "tags": [
+          "@functional",
+          "@regression"
+        ]
+      },
+      {
+        "id": "ebdb9ea7-497d-41c6-889e-1315a7d1b6db",
+        "title": "Create Lead with only mandatory fields (Last Name and Company) - no optional fields",
+        "priority": "P1",
+        "platforms": [
+          "chrome"
+        ],
+        "preconditions": [
+          "User is authenticated and on the Home page"
+        ],
+        "steps": [
+          {
+            "id": "step-1",
+            "action": "openUrl",
+            "targetDescription": "Navigate to the application home page",
+            "value": "/"
+          },
+          {
+            "id": "step-2",
+            "action": "tap",
+            "targetDescription": "Leads tab in navigation",
+            "screenName": "HomePage",
+            "pageObjectMethod": "clickLeads"
+          },
+          {
+            "id": "step-3",
+            "action": "tap",
+            "targetDescription": "New button on Leads list page",
+            "screenName": "LeadListPage",
+            "pageObjectMethod": "clickNew"
+          },
+          {
+            "id": "step-4",
+            "action": "fill",
+            "targetDescription": "Last Name field",
+            "screenName": "LeadListPage",
+            "pageObjectMethod": "fillLastName",
+            "value": "Smith"
+          },
+          {
+            "id": "step-5",
+            "action": "fill",
+            "targetDescription": "Company field",
+            "screenName": "LeadListPage",
+            "pageObjectMethod": "fillCompany",
+            "value": "ABC Technologies"
+          },
+          {
+            "id": "step-6",
+            "action": "tap",
+            "targetDescription": "Save button",
+            "screenName": "LeadListPage",
+            "pageObjectMethod": "clickSaveEdit"
+          },
+          {
+            "id": "step-7",
+            "action": "assertVisible",
+            "targetDescription": "Lead record page is displayed confirming successful creation",
+            "screenName": "LeadPage",
+            "pageObjectMethod": "expectLeadVisible"
+          },
+          {
+            "id": "step-8",
+            "action": "assertVisible",
+            "targetDescription": "Open - Not Contacted status is visible",
+            "screenName": "LeadPage",
+            "pageObjectMethod": "expectOpenNotContactedVisible"
+          }
+        ],
+        "tags": [
+          "@functional",
+          "@regression"
+        ]
+      },
+      {
+        "id": "f53dc33a-3c9a-4a7a-abc9-ca90763ec713",
+        "title": "New Lead form shows Save & New button option",
+        "priority": "P2",
+        "platforms": [
+          "chrome"
+        ],
+        "preconditions": [
+          "User is authenticated and on the Home page"
+        ],
+        "steps": [
+          {
+            "id": "step-1",
+            "action": "openUrl",
+            "targetDescription": "Navigate to the application home page",
+            "value": "/"
+          },
+          {
+            "id": "step-2",
+            "action": "tap",
+            "targetDescription": "Leads tab in navigation",
+            "screenName": "HomePage",
+            "pageObjectMethod": "clickLeads"
+          },
+          {
+            "id": "step-3",
+            "action": "tap",
+            "targetDescription": "New button on Leads list page",
+            "screenName": "LeadListPage",
+            "pageObjectMethod": "clickNew"
+          },
+          {
+            "id": "step-4",
+            "action": "assertVisible",
+            "targetDescription": "Save & New button is visible on the form",
+            "screenName": "LeadListPage",
+            "pageObjectMethod": "expectSaveAndNewVisible"
+          }
+        ],
+        "tags": [
+          "@functional",
+          "@regression"
+        ]
+      },
+      {
+        "id": "e00c15b6-5e69-4301-9a0f-5583a3135d41",
+        "title": "Create Lead using Save & New saves the lead and opens a new blank form",
+        "priority": "P2",
+        "platforms": [
+          "chrome"
+        ],
+        "preconditions": [
+          "User is authenticated and on the Home page"
+        ],
+        "steps": [
+          {
+            "id": "step-1",
+            "action": "openUrl",
+            "targetDescription": "Navigate to the application home page",
+            "value": "/"
+          },
+          {
+            "id": "step-2",
+            "action": "tap",
+            "targetDescription": "Leads tab in navigation",
+            "screenName": "HomePage",
+            "pageObjectMethod": "clickLeads"
+          },
+          {
+            "id": "step-3",
+            "action": "tap",
+            "targetDescription": "New button on Leads list page",
+            "screenName": "LeadListPage",
+            "pageObjectMethod": "clickNew"
+          },
+          {
+            "id": "step-4",
+            "action": "fill",
+            "targetDescription": "Last Name field",
+            "screenName": "LeadListPage",
+            "pageObjectMethod": "fillLastName",
+            "value": "Smith"
+          },
+          {
+            "id": "step-5",
+            "action": "fill",
+            "targetDescription": "Company field",
+            "screenName": "LeadListPage",
+            "pageObjectMethod": "fillCompany",
+            "value": "ABC Technologies"
+          },
+          {
+            "id": "step-6",
+            "action": "tap",
+            "targetDescription": "Save & New button",
+            "screenName": "LeadListPage",
+            "pageObjectMethod": "clickSaveAndNew"
+          },
+          {
+            "id": "step-7",
+            "action": "assertVisible",
+            "targetDescription": "A new blank New Lead form is displayed",
+            "screenName": "LeadListPage",
+            "pageObjectMethod": "expectNewLeadVisible"
+          }
+        ],
+        "tags": [
+          "@functional",
+          "@regression"
+        ]
+      },
+      {
+        "id": "28df8824-84bc-4f8d-8406-5672aa919010",
+        "title": "Newly created Lead appears in the Leads list after creation",
+        "priority": "P1",
+        "platforms": [
+          "chrome"
+        ],
+        "preconditions": [
+          "User is authenticated and on the Home page"
+        ],
+        "steps": [
+          {
+            "id": "step-1",
+            "action": "openUrl",
+            "targetDescription": "Navigate to the application home page",
+            "value": "/"
+          },
+          {
+            "id": "step-2",
+            "action": "tap",
+            "targetDescription": "Leads tab in navigation",
+            "screenName": "HomePage",
+            "pageObjectMethod": "clickLeads"
+          },
+          {
+            "id": "step-3",
+            "action": "tap",
+            "targetDescription": "New button on Leads list page",
+            "screenName": "LeadListPage",
+            "pageObjectMethod": "clickNew"
+          },
+          {
+            "id": "step-4",
+            "action": "fill",
+            "targetDescription": "First Name field",
+            "screenName": "LeadListPage",
+            "pageObjectMethod": "fillFirstName",
+            "value": "John"
+          },
+          {
+            "id": "step-5",
+            "action": "fill",
+            "targetDescription": "Last Name field",
+            "screenName": "LeadListPage",
+            "pageObjectMethod": "fillLastName",
+            "value": "Smith"
+          },
+          {
+            "id": "step-6",
+            "action": "fill",
+            "targetDescription": "Company field",
+            "screenName": "LeadListPage",
+            "pageObjectMethod": "fillCompany",
+            "value": "ABC Technologies"
+          },
+          {
+            "id": "step-7",
+            "action": "tap",
+            "targetDescription": "Save button",
+            "screenName": "LeadListPage",
+            "pageObjectMethod": "clickSaveEdit"
+          },
+          {
+            "id": "step-8",
+            "action": "assertVisible",
+            "targetDescription": "Lead record page is displayed",
+            "screenName": "LeadPage",
+            "pageObjectMethod": "expectLeadVisible"
+          },
+          {
+            "id": "step-9",
+            "action": "tap",
+            "targetDescription": "Leads tab to go back to list",
+            "screenName": "HomePage",
+            "pageObjectMethod": "clickLeads"
+          },
+          {
+            "id": "step-10",
+            "action": "assertVisible",
+            "targetDescription": "Leads list is displayed",
+            "screenName": "LeadListPage",
+            "pageObjectMethod": "expectLeadsRecentlyViewedVisible"
+          }
+        ],
+        "tags": [
+          "@functional",
+          "@regression"
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "id": "64043021-5673-4e78-82c1-193011010c96",
+  "testPlanId": "15ebbb82-d226-423f-8f34-54641e16026b",
+  "requirementId": "0f79ec14-b4b4-41c4-9fcc-3a26fb6f1292",
+  "suiteName": "US-001 - Create Lead",
+  "case": {
+    "id": "64043021-5673-4e78-82c1-193011010c96",
+    "title": "User is redirected to newly created Lead record page after successful save",
+    "priority": "P0",
+    "platforms": [
+      "chrome"
+    ],
+    "preconditions": [
+      "User is authenticated and on the Home page"
+    ],
+    "steps": [
+      {
+        "id": "step-1",
+        "action": "openUrl",
+        "targetDescription": "Navigate to the application home page",
+        "value": "/"
+      },
+      {
+        "id": "step-2",
+        "action": "tap",
+        "targetDescription": "Leads tab in navigation",
+        "screenName": "HomePage",
+        "pageObjectMethod": "clickLeads"
+      },
+      {
+        "id": "step-3",
+        "action": "tap",
+        "targetDescription": "New button on Leads list page",
+        "screenName": "LeadListPage",
+        "pageObjectMethod": "clickNew"
+      },
+      {
+        "id": "step-4",
+        "action": "fill",
+        "targetDescription": "Last Name field",
+        "screenName": "LeadListPage",
+        "pageObjectMethod": "fillLastName",
+        "value": "Smith"
+      },
+      {
+        "id": "step-5",
+        "action": "fill",
+        "targetDescription": "Company field",
+        "screenName": "LeadListPage",
+        "pageObjectMethod": "fillCompany",
+        "value": "ABC Technologies"
+      },
+      {
+        "id": "step-6",
+        "action": "tap",
+        "targetDescription": "Save button",
+        "screenName": "LeadListPage",
+        "pageObjectMethod": "clickSaveEdit"
+      },
+      {
+        "id": "step-7",
+        "action": "assertVisible",
+        "targetDescription": "Lead record page is displayed with the lead name",
+        "screenName": "LeadPage",
+        "pageObjectMethod": "expectLeadNameVisible"
+      },
+      {
+        "id": "step-8",
+        "action": "assertContainsText",
+        "targetDescription": "Lead name on record page contains the created lead's name",
+        "screenName": "LeadPage",
+        "pageObjectMethod": "expectLeadNameContainsText",
+        "assertion": "Smith"
+      }
+    ],
+    "tags": [
+      "@functional",
+      "@regression"
+    ]
+  }
+}

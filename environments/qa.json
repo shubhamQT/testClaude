@@ -1,4 +1,6 @@
 {
+  "name": "qa",
+  "slug": "qa",
   "baseURL": "https://orgfarm-cdb7bbd1fc-dev-ed.develop.my.salesforce.com",
   "username": "jagadeesh.b041e11a2bdd@agentforce.com",
   "password": "Admin@1234",

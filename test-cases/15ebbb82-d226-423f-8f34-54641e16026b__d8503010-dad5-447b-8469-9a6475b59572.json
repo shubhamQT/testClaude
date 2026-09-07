@@ -1,0 +1,50 @@
+{
+  "id": "d8503010-dad5-447b-8469-9a6475b59572",
+  "testPlanId": "15ebbb82-d226-423f-8f34-54641e16026b",
+  "requirementId": "0f79ec14-b4b4-41c4-9fcc-3a26fb6f1292",
+  "suiteName": "US-001 - Create Lead",
+  "case": {
+    "id": "d8503010-dad5-447b-8469-9a6475b59572",
+    "title": "Click New button on Leads list page opens New Lead form",
+    "priority": "P0",
+    "platforms": [
+      "chrome"
+    ],
+    "preconditions": [
+      "User is authenticated and on the Home page"
+    ],
+    "steps": [
+      {
+        "id": "step-1",
+        "action": "openUrl",
+        "targetDescription": "Navigate to the application home page",
+        "value": "/"
+      },
+      {
+        "id": "step-2",
+        "action": "tap",
+        "targetDescription": "Leads tab in navigation",
+        "screenName": "HomePage",
+        "pageObjectMethod": "clickLeads"
+      },
+      {
+        "id": "step-3",
+        "action": "tap",
+        "targetDescription": "New button on Leads list page",
+        "screenName": "LeadListPage",
+        "pageObjectMethod": "clickNew"
+      },
+      {
+        "id": "step-4",
+        "action": "assertVisible",
+        "targetDescription": "New Lead form is displayed",
+        "screenName": "LeadListPage",
+        "pageObjectMethod": "expectNewLeadVisible"
+      }
+    ],
+    "tags": [
+      "@functional",
+      "@regression"
+    ]
+  }
+}
